@@ -1,6 +1,28 @@
 html {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
+.form-group {
+    text-align: left;
+    margin:0 calc(40% - 30%);
+    margin-top: 10px;
+    padding-bottom: 2%;
+}
+.table {
+    /* position: relative; */
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 5px;
+    padding-bottom: 3%;
+}
+
+.btn-add1{
+    text-align: left;
+    margin:0 calc(40% - 30%);
+    margin-top: 10px;
+    padding-bottom: 0.2%;
+}
+
 #manage-container {
     height: 100%;
     width: 100%;

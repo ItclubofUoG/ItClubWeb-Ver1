@@ -102,18 +102,17 @@ body {
         <div>
             <form action="" method="POST">
                 <div class="form-group">
-                    <input type="text" name="id" placeholder="" class="form-label">
-                </div>
-                <div class="button">
-                    <button type="submit" name="btn_search" id="btn_search">Search</button>
-                </div>
+                    <input type="text" name="id" placeholder="" class="form-label" style="width: 380px; height: 30px">
+                    <button type="submit" name="btn_search" id="btn_search" style="width: 80px; height: 30px">Search</button>
 
+                </div>
+                <div class="btn-add1">
+                <button class="add-user js-add-user" style="width: 80px; height: 30px"> Add new</button>
+            </div>
             </form>
         </div>
         <div class="detail-right">
-            <div class="btn-add">
-                <button class="add-user js-add-user"> Add new</button>
-            </div>
+
             <div class="table-1">
                 <table class="table">
                     <thead class="table-head">
