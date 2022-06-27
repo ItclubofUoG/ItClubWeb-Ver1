@@ -33,7 +33,7 @@ if ($_SESSION["id"] != null) {
             </div>
             <label class="dp-head">User Department:</label>
             <div class="dp-input">
-                <select class="input-dp" name="department" id="department" placeholder="Department">
+                <select class="input-dp" name="department" id="department" placeholder="Department" style="width: 80%; height: 40px">
                     <?php $department = array(
                         "<option value='Font-end'>Font-end</option>",
                         "<option value='Back-end'>Back-end</option>",

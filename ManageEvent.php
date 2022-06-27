@@ -50,9 +50,9 @@
 
 
             <div class="detail-right">
-                <div class="btn-add">
+                <!-- <div class="btn-add">
                     <button class="add-user js-add-ev"> Add New Event</button>
-                </div>
+                </div> -->
                 <div class="table-1">
                     <table class="table">
                         <thead class="table-head">
