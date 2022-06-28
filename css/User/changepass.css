@@ -91,6 +91,23 @@ html {
     border-radius: 5px;
     height: 40px;
 }
+
+.input-dp1 {
+    justify-content: center;
+
+
+
+    margin:0 calc(40% - 30%);
+    /* margin-top: 10px; */
+    /* padding-bottom: 2%; */
+    
+
+    border: 1px solid #000;
+    border-radius: 5px;
+
+}
+
+
 .us-gender {
     font-size: 15px;
     margin-top: 10px;
