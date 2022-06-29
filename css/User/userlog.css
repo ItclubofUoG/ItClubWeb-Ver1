@@ -99,7 +99,7 @@
 }
 .body-left {
     border: 1px solid #ccc;
-    width: 47.5%;
+    width: 100%;
     background-color: antiquewhite;
 }
 .left-head {
@@ -175,7 +175,7 @@
 
 .filter-1 {
     padding: 1%;
-    width: 30%;
+    width: 100%;
 }
 .filter-1 label {
     display: block;

@@ -81,7 +81,7 @@ if (isset($_POST['To_Excel'])) {
     $result = mysqli_query($conn, $sql);
     if ($result->num_rows > 0) {
         $output .= '
-                  <table class="table" bordered="1">  
+                  <table class="table" border="1">  
                     <TR>
                       <TH>ID</TH>
                       <TH>Name</TH>
@@ -108,8 +108,9 @@ if (isset($_POST['To_Excel'])) {
                         </TR>';
         }
         $output .= '</table>';
+        $dateExport = date("Y-m-d");
         header('Content-Type: application/xls');
-        header('Content-Disposition: attachment; filename=User_Log' . $Start_date . '.xls');
+        header('Content-Disposition: attachment; filename=User_Log - ' . date('d-m-Y', strtotime($dateExport)) . '.xls');
 
         echo $output;
         exit();

@@ -131,23 +131,14 @@ include_once("connectDB.php");
                             <input name="date_sel_end" id="date_sel_end" type="date" class="date" id="dateend">
                         </div>
                     </div>
-                    <div class="body-right">
-                        <div class="right-head">
-                            <p class="box-label">Filter By Time:</p>
-                            <input class="time-in" type="radio" id="radio-one" name="time_sel" class="time-in" value="Time_in">Time-In</input>
-                            <input class="time-in" type="radio" id="radio-two" name="time_sel" class="time-out" value="Time_out">Time-Out</input>
-                        </div>
-                        <div class="left-right-body">
-                            <label for="timein">Select from this Time:</label>
-                            <input type="time" class="time" name="time_sel_start" id="time_sel_start">
-                            <label for="timeout">To end of this Time:</label>
-                            <input type="time" class="time" name="time_sel_end" id="time_sel_end">
-                        </div>
-                    </div>
+
                 </div>
                 <div class="body-bottom">
                     <div class="filter-1">
-                        <label for="">Filter By User</label>
+                        <div class="left-head">
+                            <p class="box-label">Filter By User:</p>
+                        </div>
+                        <label for="">Select User</label>
                         <select class="filter-select" placeholder="User" name="card_sel" id="card_sel">
                             <option value="0">All User</option>
                             <?php
@@ -168,39 +159,15 @@ include_once("connectDB.php");
                             ?>
                         </select>
                     </div>
-                    <div class="filter-1">
-                        <label for="">Filter By Department</label>
-                        <select class="filter-select" placeholder="Department" name="dev_sel" id="dev_sel">
-                            <option value="0">All Department</option>
-                            <?php
-                            require 'connectDB.php';
-                            $sql = "SELECT * FROM devices ORDER BY device_dep ASC";
-                            $result = mysqli_stmt_init($conn);
-                            if (!mysqli_stmt_prepare($result, $sql)) {
-                                echo '<p class="error">SQL Error</p>';
-                            } else {
-                                mysqli_stmt_execute($result);
-                                $result1 = mysqli_stmt_get_result($result);
-                                while ($row = mysqli_fetch_assoc($result1)) {
-                            ?>
-                                    <option value="<?php echo $row['device_uid']; ?>"><?php echo $row['device_dep']; ?></option>
-                            <?php
-                                }
-                            }
-                            ?>
-                        </select>
-                    </div>
-                    <div class="filter-2">
-                        <label for="">Export to excel</label>
-                        <button type="submit" name="To_Excel" class="export">Export</button>
-                    </div>
+
                 </div>
             </div>
             <div class="filter-footer">
                 <div class="footer-btn">
-                    <button onclick="return confirm('Are you sure ?')" type="submit" class="btn-cancel" name="btn_delete" id="btn-delete">Delete</button>
+                    <button onclick="return confirm('Are you sure ?')" type="submit" class="btn-cancel" name="btn_delete" id="btn-delete" style="background-color: red;">Delete</button>
                     <button type="submit" class="btn-filter" name="user_log" id="user_log">Filter</button>
-                    <button type="reset" class="btn-cancel">Cancel</button>
+                    <button type="submit" name="To_Excel" class="btn-cancel" style="background-color: #EFCBA2;">Export to Excel</button>
+
                 </div>
             </div>
         </form>
