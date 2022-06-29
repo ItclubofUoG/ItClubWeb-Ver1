@@ -18,8 +18,8 @@
                 <?php
                     //Display Event with Current Month and default value if there is not enough event
                     include_once("connectDB.php");
-                    $current_month = 4;//date('m');
-                    $result = mysqli_query($conn, "SELECT * FROM event where month(date) = '$current_month'");
+                    // $current_month = 4;//date('m');
+                    $result = mysqli_query($conn, "SELECT * FROM event ");
                     $default = mysqli_query($conn, "SELECT * FROM event where id = 0");
                     $default_row= mysqli_fetch_array($default, MYSQLI_ASSOC);
                     $num_rows = mysqli_num_rows($result);
