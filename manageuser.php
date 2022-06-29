@@ -131,8 +131,26 @@ body {
                         include_once('ConnectDB.php');
                         if (isset($_POST['btn_search'])) {
                             $id = $_POST['id'];
-                            $result = mysqli_query($conn, "SELECT * FROM users WHERE StudentID like '%$id%' or username like'%$id%'");
-                            while ($row = mysqli_fetch_array($result)) { ?>
+
+                            $results_per_page = 10;
+                            // find out the number of results stored in database
+                            $sql = "SELECT * FROM users WHERE StudentID like '%$id%' or username like '%$id%'";
+                            $result = mysqli_query($conn, $sql);
+                            $number_of_results = mysqli_num_rows($result);
+                            // determine number of total pages available
+                            (int)$number_of_pages = ceil($number_of_results / $results_per_page);
+
+                            // determine which page number visitor is currently on
+                            if (!isset($_GET['pages'])) {
+                                $page = 1;
+                            } else {
+                                $page = $_GET['pages'];
+                            }
+                            // determine the sql LIMIT starting number for the results on the displaying page
+                            $this_page_first_result = 0;
+                            $sql1 = "SELECT * FROM users WHERE StudentID like '%$id%' or username like '%$id%' LIMIT " . $this_page_first_result . ',' .  $results_per_page;
+                            $result = mysqli_query($conn, $sql1);
+                            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
                                 <tr>
                                     <td>
                                         <a href="?page=manageuser_update&&stuid=<?php echo $row['StudentID']; ?>" class="update-name js-update-name"> <?php echo $row['StudentID']; ?> | <?php echo $row['username']; ?> </a>
@@ -144,6 +162,7 @@ body {
                                     <td> <?php echo $row['github']; ?> </td>
                                     <td> <?php echo $row['email']; ?> </td>
                                 </tr>
+                            
                             <?php }
                         } else {
                             $results_per_page = 10;
@@ -187,9 +206,13 @@ body {
                 </br>
                 <?php 
                     // display the links to the pages
-                    for ($page = 1; $page <= $number_of_pages; $page++) {
-                        echo '<a href="admin.php?page=manageuser&&pages=' . $page . '">' . $page . '</a> ';
+                    if($number_of_pages >= 1){
+                        for ($page = 1; $page <= $number_of_pages; $page++) {
+                            echo '<a href="admin.php?page=manageuser&&pages=' . $page . '">' . $page . '</a> ';
+                        }
                     }
+                   
+                    
                 ?>
                 </div>
             </div>

@@ -8,7 +8,7 @@
         <div class="detail-mn">
             <!-- /model adduser -->
             <div class="modaluser js-modal-ev">
-                <form class="modal-container js-modal-container-ev" method="POST" action="ManageEventPro.php?func=add" id="formadd">
+                <form class="modal-container js-modal-container-ev" method="POST" action="ManageEventPro.php?func=add" id="formaddEvent">
                     <div class="modal-header">
                         <div class="modal-label">
                             <p> Add New Event </p>
@@ -20,7 +20,7 @@
                     <div class="modal-body">
                         <div class="modal-input">
                             <input type="text" class="input-info" name="title" id="title" placeholder="Event Name">
-                            <p class="error-ev"></p>
+                            <p class="error-ev" style="margin-bottom: 0; margin-bottom: 1px;"></p>
                         </div>
                         <div class="modal-input">
                             <input type="date" class="input-info" name="date" id="date" placeholder="Date">
@@ -50,9 +50,9 @@
 
 
             <div class="detail-right">
-                <!-- <div class="btn-add">
+                <div class="btn-add">
                     <button class="add-user js-add-ev"> Add New Event</button>
-                </div> -->
+                </div>
                 <div class="table-1">
                     <table class="table">
                         <thead class="table-head">
@@ -109,7 +109,7 @@
         }
         modalcloseEv.addEventListener('click', hideModalAdd)
 
-        modalUser.addEventListener('click', hideModalAdd)
+        // modalUser.addEventListener('click', hideModalAdd)
 
         modalcontainerUser.addEventListener('click', function(event) {
             event.stopPropagation() //stop nổi bọt
@@ -117,15 +117,19 @@
 
 
         
-        Validator({
-            form: '#formadd',
-            formGroupSelector: '.modal-body',
-            errorSelector: '.error',
-            rules: [
-                Validator.isRequired('#devicename', 'This feild can not empty'),
-                Validator.isRequired('#departmentname', 'This feild can not empty'),
-            ],
-        });
+        // Validator({
+        //     form: '#formaddEvent',
+        //     formGroupSelector: '.modal-input',
+        //     errorSelector: '.error-ev',
+        //     rules: [
+        //         Validator.isRequired('#title', 'This feild can not empty'),
+        //         Validator.isRequired('#date', 'This feild can not empty'),
+        //         Validator.isRequired('#time', 'This feild can not empty'),
+        //         Validator.isRequired('#location', 'This feild can not empty'),
+        //         Validator.isRequired('#description', 'This feild can not empty')
+
+        //     ],
+        // });
     
     </script>
 
