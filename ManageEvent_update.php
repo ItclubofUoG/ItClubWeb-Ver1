@@ -48,6 +48,15 @@
                             <input id="description" name="description" type="text" value="<?php echo $row['description'] ?>" class="input-info" placeholder="Description">
                             <p class="error-ev"></p>
                         </div>
+                        <div class="modal-input">
+                            <input type="number" class="input-info" name="score" id="score" placeholder="Event Score" min="0" max="100" value="<?php echo $row['score'] ?>">
+                            <p class="error-ev"></p>
+                        </div>
+                        <div class="modal-input">
+                            <label for="" style="font-size: 13px;">Image</label>
+                            <input type="file" class="input-info" name="image" id="image" accept="image/*">
+                            <p class="error-ev"></p>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <div class="button">

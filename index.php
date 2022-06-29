@@ -39,7 +39,7 @@
     <div id="header">
         <!-- logo left -->
         <div class="head-left">
-            <img src="./image/lg-school.png" alt="logo-school" class="img-lg">
+            <img src="./image/2022-Greenwich-Eng.png" alt="logo-school" class="img-lg">
         </div>
         <div class="head-name">
             <img src="./image/lg-cl.png" alt="" class="img-club">

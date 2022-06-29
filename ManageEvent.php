@@ -38,6 +38,15 @@
                             <input type="text" class="input-info" name="description" id="description" placeholder="Description">
                             <p class="error-ev"></p>
                         </div>
+                        <div class="modal-input">
+                            <input type="number" class="input-info" name="score" id="score" placeholder="Event Score" min="0" max="100">
+                            <p class="error-ev"></p>
+                        </div>
+                        <div class="modal-input">
+                            <label for="" style="font-size: 13px;">Image</label>
+                            <input type="file" class="input-info" name="image" id="image" accept="image/*">
+                            <p class="error-ev"></p>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <div class="button">
@@ -63,6 +72,8 @@
                                 <th class="th-head">Time</th>
                                 <th class="th-head">Location</th>
                                 <th class="th-head">Description</th>
+                                <th class="th-head">Score</th>
+                                <th class="th-head">Image</th>
                             </tr>
                         </thead>
                         <tbody class="table-body">
@@ -79,6 +90,9 @@
                                     <td class="td-body"><?php echo $row['time']; ?></td>
                                     <td class="td-body"><?php echo $row['location']; ?></td>
                                     <td class="td-body"><?php echo $row['description']; ?></td>
+                                    <td class="td-body"><?php echo $row['score']; ?></td>
+                                    <td class="td-body"><img src="./Event Image/<?php echo $row['image']; ?>" alt="" width="200px" height="100px"></td>
+
                                 </tr>
                             <?php }; ?>
                         </tbody>
