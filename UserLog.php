@@ -234,5 +234,5 @@ include_once("connectDB.php");
     })
 </script>
 </body>
-
+<!-- knanhngoc ne -->
 </html>
