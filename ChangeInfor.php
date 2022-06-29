@@ -31,9 +31,10 @@ if ($_SESSION["id"] != null) {
                 <input value="<?php echo $row['github']; ?>" class="form-input" type="text" placeholder="Github ID" id="github" name="github">
                 <p class="error"></p>
             </div>
+            <div class="form-group">
             <label class="dp-head">User Department:</label>
-            <div class="dp-input">
-                <select class="input-dp" name="department" id="department" placeholder="Department">
+            <!-- <div class="dp-input"> -->
+                <select class="input-dp1" name="department" id="department" placeholder="Department" style="width: 80%; height: 40px">
                     <?php $department = array(
                         "<option value='Font-end'>Font-end</option>",
                         "<option value='Back-end'>Back-end</option>",
@@ -90,8 +91,10 @@ if ($_SESSION["id"] != null) {
                     ?>
                 </select>
             </div>
+            <div class="form-group">
             <label class="dp-head">Gender:</label>
-            <div class="us-gender">
+            <!-- <div class="us-gender"> -->
+                <div class="form-group">
                 <?php if ($row['gender'] == 'male') {
                     echo '<input type="radio" name="gender" value="male" checked> <span>Male</span>';
                     echo ' <input type="radio" name="gender" value="female"> <span>Female</span>';
@@ -100,6 +103,7 @@ if ($_SESSION["id"] != null) {
                     echo ' <input type="radio" name="gender" value="female" checked> <span>Female</span>';
                 }
                 ?>
+                </div>
             </div>
             <button type="submit" class="btn-submit" name="btnChangeInfor" id="btnChangeInfor" style="width:160px; background-color:rgb(209, 165, 20)">Change Information</button>
         </form>
