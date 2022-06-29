@@ -76,8 +76,7 @@
                          <div class="tree-child-tag">Description:  <?php echo $rowContent[2]['description'];?></div>
                          
                      </div>
-                 </div>
-                 
+                 </div>                 
              </form>
          </div>
      </div>

@@ -71,7 +71,7 @@ body {
                 ?>
                     <tr>
                         <td>
-                            <a href="#" class="update-name"> <?php echo $row['StudentID']; ?> | <?php echo $row['username']; ?> </a>
+                            <p> <?php echo $row['StudentID']; ?> | <?php echo $row['username']; ?> </p>
                         </td>
                         <td> <?php echo $row['email']; ?> </td>
                         <td><?php echo $row['gender']; ?></td>

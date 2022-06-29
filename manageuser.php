@@ -114,6 +114,8 @@
             </div> -->
             </form>
         </div>
+
+
         <div class="detail-right">
 
             <div class="table-1">
