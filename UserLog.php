@@ -190,17 +190,15 @@ include_once("connectDB.php");
                             ?>
                         </select>
                     </div>
-                    <div class="filter-2">
-                        <label for="">Export to excel</label>
-                        <button type="submit" name="To_Excel" class="export">Export</button>
-                    </div>
+                    
                 </div>
             </div>
             <div class="filter-footer">
                 <div class="footer-btn">
-                    <button onclick="return confirm('Are you sure ?')" type="submit" class="btn-cancel" name="btn_delete" id="btn-delete">Delete</button>
-                    <button type="submit" class="btn-filter" name="user_log" id="user_log">Filter</button>
-                    <button type="reset" class="btn-cancel">Cancel</button>
+                    <button onclick="return confirm('Are you sure ?')" type="submit" class="btn-cancel" name="btn_delete" id="btn-delete" style="background-color: red;">Delete</button>
+                    <button type="submit" class="btn-filter" name="user_log" id="user_log">Filter</button>                    
+                    <button type="submit" name="To_Excel" class="btn-cancel" style="background-color: #EFCBA2;">Export to Excel</button>
+                    
                 </div>
             </div>
         </form>

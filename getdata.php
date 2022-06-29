@@ -90,7 +90,7 @@ if (isset($_GET['card_uid']) && isset($_GET['device_token'])) {
 
                                         echo "Not enough time to time out. (Greater than 30 minutes). Time in has been $minutes minutes. Please Wait!";
                                         //Checkin time greater than 30 minutes will be check out.
-                                        if ($minutes >= 0.5)
+                                        if ($minutes >= 30)
                                         {
                                             $sql = "UPDATE users_logs SET timeout=?,scores =1 WHERE card_uid=? AND checkindate=? AND scores=0";
                                             $result = mysqli_stmt_init($conn);

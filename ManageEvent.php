@@ -8,11 +8,7 @@
         <div class="detail-mn">
             <!-- /model adduser -->
             <div class="modaluser js-modal-ev">
-<<<<<<< HEAD
-                <form class="modal-container js-modal-container-ev" method="POST" action="ManageEventPro.php?func=add" id="formaddEvent">
-=======
                 <form class="modal-container js-modal-container-ev" method="POST" action="ManageEventPro.php?func=add">
->>>>>>> facd7dca1572a0f4e9cca9021e105d28ab81237f
                     <div class="modal-header">
                         <div class="modal-label">
                             <p> Add New Event </p>
@@ -105,7 +101,7 @@
         }
 
         for (const addUser of addEvs) {
-            addEv.addEventListener('click', showModalAdd)
+            addUser.addEventListener('click', showModalAdd)
         }
 
         function hideModalAdd() {
