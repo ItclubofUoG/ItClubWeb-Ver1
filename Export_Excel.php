@@ -264,9 +264,7 @@ if (isset($_POST['user_log'])) {
     $sql = "DELETE FROM `users_logs`";
     if (isset($_SESSION['searchQuery']) && $check == 1) {
         $sql = "DELETE FROM `users_logs` WHERE " . $_SESSION['searchQuery'] . "";
-    } else {
-        $sql = "DELETE FROM `users_logs`";
-    }
+    } 
     mysqli_query($conn, $sql);
     header("location: admin.php?page=userlog");
     exit();
