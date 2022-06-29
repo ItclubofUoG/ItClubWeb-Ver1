@@ -17,6 +17,7 @@ if (isset($_GET['func']) && $_GET['func'] == 'update') {
             }
         }
     }
+    
     $stid = $_POST['stid'];
     $checkstid = mysqli_query($conn, "SELECT * FROM users WHERE id='$id'") or die(mysqli_error($conn));
     while ($row2 = mysqli_fetch_array($checkstid, MYSQLI_ASSOC)) {
