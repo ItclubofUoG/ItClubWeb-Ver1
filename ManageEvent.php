@@ -8,7 +8,7 @@
         <div class="detail-mn">
             <!-- /model adduser -->
             <div class="modaluser js-modal-ev">
-                <form class="modal-container js-modal-container-ev" method="POST" action="ManageEventPro.php?func=add" id="formadd">
+                <form class="modal-container js-modal-container-ev" method="POST" action="ManageEventPro.php?func=add">
                     <div class="modal-header">
                         <div class="modal-label">
                             <p> Add New Event </p>
@@ -101,7 +101,7 @@
         }
 
         for (const addUser of addEvs) {
-            addUser.addEventListener('click', showModalAdd)
+            addEv.addEventListener('click', showModalAdd)
         }
 
         function hideModalAdd() {
@@ -114,19 +114,6 @@
         modalcontainerUser.addEventListener('click', function(event) {
             event.stopPropagation() //stop nổi bọt
         })
-
-
-        
-        Validator({
-            form: '#formadd',
-            formGroupSelector: '.modal-body',
-            errorSelector: '.error',
-            rules: [
-                Validator.isRequired('#devicename', 'This feild can not empty'),
-                Validator.isRequired('#departmentname', 'This feild can not empty'),
-            ],
-        });
-    
     </script>
 
 </body>
