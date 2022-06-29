@@ -1,32 +1,35 @@
 <style>
-body {
-  background-color:white;
+    body {
+        background-color: white;
 
-}
-.pagination {
+    }
 
-    display: flex;
-    justify-content: center;
-    padding-top: 30px;
-    padding-bottom: 30px;
-}
+    .pagination {
 
-.pagination a {
-  color: white;
-  float: left;
-  padding: 8px 16px;
-  text-decoration: none;
-  transition: background-color .3s;
-  border: 1px solid #ddd;
-}
+        display: flex;
+        justify-content: center;
+        padding-top: 30px;
+        padding-bottom: 30px;
+    }
 
-.pagination a.active {
-  background-color: #4CAF50;
-  color: white;
-  border: 1px solid #4CAF50;
-}
+    .pagination a {
+        color: white;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color .3s;
+        border: 1px solid #ddd;
+    }
 
-.pagination a:hover:not(.active) {background-color: #ddd;}
+    .pagination a.active {
+        background-color: #4CAF50;
+        color: white;
+        border: 1px solid #4CAF50;
+    }
+
+    .pagination a:hover:not(.active) {
+        background-color: #ddd;
+    }
 </style>
 <!-- body -->
 <div id="manage-container">
@@ -162,7 +165,7 @@ body {
                                     <td> <?php echo $row['github']; ?> </td>
                                     <td> <?php echo $row['email']; ?> </td>
                                 </tr>
-                            
+
                             <?php }
                         } else {
                             $results_per_page = 10;
@@ -202,18 +205,16 @@ body {
                     </tbody>
                 </table>
                 <div class="pagination">
-                </br>
-                </br>
-                <?php 
+                    </br>
+                    </br>
+                    <?php
                     // display the links to the pages
-                    if($number_of_pages >= 1){
+                    if($number_of_pages > 1){
                         for ($page = 1; $page <= $number_of_pages; $page++) {
                             echo '<a href="admin.php?page=manageuser&&pages=' . $page . '">' . $page . '</a> ';
                         }
-                    }
-                   
-                    
-                ?>
+                    }                    
+                    ?>
                 </div>
             </div>
         </div>
