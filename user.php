@@ -40,6 +40,7 @@
             <?php
             require 'connectDB.php';
             $us = $_SESSION["us"];
+
             if (isset($_POST['checkindate'])) {
                 $checkindate = $_POST['checkindate'];
                 $time = strtotime($checkindate);
@@ -60,8 +61,14 @@
             <th>Time In</th>
             <th>Time Out</th>
             <th>Scores</th>
-            </tr>";
+            </tr>
+            
+            ";
                 while ($row = mysqli_fetch_assoc($result)) {
+                    $name = $row['username'] ;
+                    $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$us'" ;
+                    $result_score = mysqli_query($conn,$sql);
+                    $score = mysqli_fetch_array($result_score);
                     echo "<tr>";
                     echo "<td>" . $row['username'] . "</td>";
                     echo "<td>" . $row['checkindate'] . "</td>";
@@ -69,8 +76,17 @@
                     echo "<td>" . $row['timeout'] . "</td>";
                     echo "<td>" . $row['scores'] . "</td>";
                     echo "</tr>";
-                }
-                echo "</table>";
+
+                } 
+                ?>
+                 <tr class="table-body">
+                    <td class="body-row" colspan="5">
+                         <b class="total-score">Total Score</b>
+                         </td>
+                    <td class="body-row"><?php echo $score['score'] ?></td>
+                 </tr>
+
+             <?php   echo "</table>";
                 mysqli_close($conn);
             } else print("0 results");
             ?>
