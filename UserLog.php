@@ -64,6 +64,9 @@ include_once("connectDB.php");
         <div class="btn-export js-btn-export">
             <button>Log Filter/ Export to Excel</button>
         </div>
+        <div class="btn-addUserLog js-btn-addUserLog">
+            <button>Add User Log Manually</button>
+        </div>
     </div>
     <?php
     if (isset($_GET['func']) && $_GET['func'] == 'filter') { ?>
@@ -175,6 +178,52 @@ include_once("connectDB.php");
 </div>
 
 <!-- end modal filter -->
+
+
+
+
+
+
+
+
+<!--modal add user log manually  -->
+<!-- <div class="modal-filter js-modal-filter"> -->
+    <div class="md-filter-container js-modal-container-filter">
+        <form action="Export_Excel.php?function=addUserLog" method="POST">
+            <div class="filter-header">
+                <h2 class="head-label">Add user log manually</h2>
+                <i class="filter-close js-modal-filter-close">X</i>
+            </div>
+            
+                <div class="body-bottom">
+                    <div class="filter-1">
+                        <div class="left-head">
+                            <p class="box-label">Enter student ID</p>
+                            <input name="stdID" id="stdID" type="text" class="input-info" placeholder="Enter student ID..." required>
+                        </div>
+                        
+                        
+                    </div>
+
+                </div>
+            </div>
+            <div class="filter-footer">
+                <div class="footer-btn">                    
+                    <button type="submit" name="addUserLog" class="btn-filter" style="background-color: #EFCBA2;">Add user log</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- end modal add user log manually -->
+
+
+
+
+
+
+
 <script>
     const filterLogs = document.querySelectorAll('.js-btn-export') //sellect the class use to use js
     const closeFilter = document.querySelector('.js-modal-filter-close')

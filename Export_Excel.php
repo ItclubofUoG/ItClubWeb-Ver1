@@ -69,10 +69,10 @@ if (isset($_POST['To_Excel'])) {
         $_SESSION['searchQuery'] .= " AND card_uid='" . $card_sel . "'";
     }
     //Department filter
-    if ($_POST['dev_sel'] != 0) {
-        $dev_uid = $_POST['dev_sel'];
-        $_SESSION['searchQuery'] .= " AND device_uid='" . $dev_uid . "'";
-    }
+    // if ($_POST['dev_sel'] != 0) {
+    //     $dev_uid = $_POST['dev_sel'];
+    //     $_SESSION['searchQuery'] .= " AND device_uid='" . $dev_uid . "'";
+    // }
     $sql = "SELECT * FROM users_logs ORDER BY id DESC";
     if (isset($_SESSION['searchQuery']) && $check == 1) {
         $sql = "SELECT * FROM users_logs WHERE " . $_SESSION['searchQuery'] . " ORDER BY id DESC";
@@ -81,30 +81,24 @@ if (isset($_POST['To_Excel'])) {
     $result = mysqli_query($conn, $sql);
     if ($result->num_rows > 0) {
         $output .= '
-                  <table class="table" border="1">  
+                  <table class="table" border="1" style="font-size: 20px; border: 2px solid">  
                     <TR>
-                      <TH>ID</TH>
-                      <TH>Name</TH>
-                      <TH>Serial Number</TH>
-                      <TH>Card UID</TH>
-                      <TH>Device ID</TH>
-                      <TH>Device Dep</TH>
-                      <TH>Date log</TH>
-                      <TH>Time In</TH>
-                      <TH>Time Out</TH>
+                      <TH style="background-color: #33F0FF">ID</TH>
+                      <TH style="background-color: #33F0FF">Name</TH>
+                      <TH style="background-color: #33F0FF">Date log</TH>
+                      <TH style="background-color: #33F0FF">Time In</TH>
+                      <TH style="background-color: #33F0FF">Time Out</TH>
+                      <TH style="background-color: #33F0FF">Score</TH>
                     </TR>';
         while ($row = $result->fetch_assoc()) {
             $output .= '
                         <TR> 
                             <TD> ' . $row['id'] . '</TD>
-                            <TD> ' . $row['username'] . '</TD>
-                            <TD> ' . $row['serialnumber'] . '</TD>
-                            <TD> ' . $row['card_uid'] . '</TD>
-                            <TD> ' . $row['device_uid'] . '</TD>
-                            <TD> ' . $row['device_dep'] . '</TD>
+                            <TD> ' . $row['username'] . '</TD>                           
                             <TD> ' . $row['checkindate'] . '</TD>
                             <TD> ' . $row['timein'] . '</TD>
                             <TD> ' . $row['timeout'] . '</TD>
+                            <TD> ' . $row['scores'] . '</TD>
                         </TR>';
         }
         $output .= '</table>';
@@ -193,9 +187,9 @@ if (isset($_POST['user_log'])) {
 
     $sql = "SELECT * FROM users_logs WHERE " . $_SESSION['searchQuery'] . " ORDER BY id DESC";
     header("location: admin.php?page=userlog&&func=filter&&sql=$sql");
-}   
-    //delete user logs
- if (isset($_POST['btn_delete'])) {
+}
+//delete user logs
+if (isset($_POST['btn_delete'])) {
     $searchQuery = " ";
     $Start_date = " ";
     $End_date = " ";
@@ -271,4 +265,38 @@ if (isset($_POST['user_log'])) {
     mysqli_query($conn, $sql);
     header("location: admin.php?page=userlog");
     exit();
+}
+
+
+
+// Add user log manually
+if (isset($_GET['function']) && $_GET['function'] == 'addUserLog') {
+    date_default_timezone_set('Asia/Ho_Chi_Minh');
+    $id = $_POST['stdID'];
+    $checkinDate = date("Y-m-d");
+    $timeIn = $timeOut = date("H:i:s");
+
+    $sqlCheckID = mysqli_query($conn, "SELECT * FROM users where StudentID = '$id'");
+
+    if (mysqli_num_rows($sqlCheckID) != 0) {
+        $row = mysqli_fetch_array($sqlCheckID, MYSQLI_ASSOC);
+
+        $username = $row['username'];
+        $serial = $row['serialnumber'];
+        $carduid = $row['card_uid'];
+        $deviceid = $row['device_uid'];
+        $deviceDep = $row['device_dep'];
+
+        $sqlCheckExists = mysqli_query($conn, "SELECT * FROM users_logs where card_uid = '$carduid' and checkindate = '$checkinDate'");
+
+        if (mysqli_num_rows($sqlCheckExists) == 0) {
+        mysqli_query($conn, "INSERT INTO users_logs (username,serialnumber,card_uid,device_uid,device_dep,checkindate,timein, timeout, scores) 
+                                        VALUES ('$username','$serial','$carduid','$deviceid','$deviceDep','$checkinDate','$timeIn','$timeOut',1)");
+        echo "<script>alert('Add successfully'); location.href='admin.php?page=userlog' </script>";
+        } else {
+            echo "<script>alert('Student have already check-in'); location.href='admin.php?page=userlog' </script>";
+        }
+    } else {
+        echo "<script>alert('Student ID does not exist'); location.href='admin.php?page=userlog' </script>";
+    }
 }
