@@ -201,8 +201,6 @@ include_once("connectDB.php");
                             <p class="box-label">Enter student ID</p>
                             <input name="stdID" id="stdID" type="text" class="input-info" placeholder="Enter student ID..." required>
                         </div>
-                        
-                        
                     </div>
 
                 </div>
