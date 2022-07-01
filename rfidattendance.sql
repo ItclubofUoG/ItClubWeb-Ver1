@@ -76,8 +76,7 @@ CREATE TABLE `event` (
   `location` varchar(200) DEFAULT NULL,
   `id` int(11) NOT NULL,
   `time` time DEFAULT current_timestamp(),
-  `image` varchar(500) NOT NULL,
-  
+  `image` varchar(500) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
