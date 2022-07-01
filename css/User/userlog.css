@@ -29,6 +29,22 @@
     color: #000;
     cursor: pointer;
 }
+
+.btn-addUserLog button{
+    width: 250px;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin: 0 calc(50% - 125px);
+    margin-top: 15px;
+    background-color: rgb(100, 147, 165);
+}
+.btn-addUserLog button:hover {
+    background-color: burlywood;
+    color: #000;
+    cursor: pointer;
+}
+
 .table-log {
     width: 80%;
     margin: 0 calc(50% - 40%);

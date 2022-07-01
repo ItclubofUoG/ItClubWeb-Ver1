@@ -79,7 +79,7 @@
                 } 
                 ?>
                  <tr class="table-body">
-                    <td class="body-row" colspan="5">
+                    <td class="body-row" colspan="4">
                          <b class="total-score">Total Score</b>
                          </td>
                     <td class="body-row"><?php echo $score['score'] ?></td>

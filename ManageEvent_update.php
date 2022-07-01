@@ -9,7 +9,7 @@
 
             <!-- modal update -->
             <div class="modal js-modal ">
-                <form id="form-update" class="modal-container js-modal-container" method="POST" action="ManageEventPro.php">
+                <form id="form-update" class="modal-container js-modal-container" method="POST" action="ManageEventPro.php" enctype="multipart/form-data">
                     <div class="modal-header">
                         <div class="modal-label">
                             <p>Update Event Infomation </p>
@@ -49,10 +49,6 @@
                             <p class="error-ev"></p>
                         </div>
                         <div class="modal-input">
-                            <input type="number" class="input-info" name="score" id="score" placeholder="Event Score" min="0" max="100" value="<?php echo $row['score'] ?>">
-                            <p class="error-ev"></p>
-                        </div>
-                        <div class="modal-input">
                             <label for="" style="font-size: 13px;">Image</label>
                             <input type="file" class="input-info" name="image" id="image" accept="image/*">
                             <p class="error-ev"></p>
@@ -61,7 +57,7 @@
                     <div class="modal-footer">
                         <div class="button">
                             <button name="btn_update" id="btn_update" type="submit" class="modal-button">Update Event</button>
-                            <button name="btn_delete" id="btn_delete" style="background-color:rgb(197, 102, 68); color:#000;" type="submit" class="modal-button">Delete Event</button>
+                            <button name="btn_delete" id="btn_delete" style="background-color:rgb(197, 102, 68); color:#000;" type="submit" class="modal-button" onclick="return confirm('Are you sure to delete?')">Delete Event</button>
                         </div>
                     </div>
                 </form>
@@ -70,7 +66,7 @@
 
             <!-- /model adduser -->
             <div class="modaluser js-modal-user">
-                <form id="form-add" class="modal-container js-modal-container-user" method="POST" action="ManageEventPro.php?func=add">
+                <form id="form-add" class="modal-container js-modal-container-user" method="POST" action="ManageEventPro.php?func=add" enctype="multipart/form-data">
                     <div class="modal-header">
                         <div class="modal-label">
                             <p> Add New Event </p>
@@ -101,12 +97,8 @@
                             <p class="error-ev"></p>
                         </div>
                         <div class="modal-input">
-                            <input type="number" class="input-info" name="score" id="score" placeholder="Event Score" min="0" max="100">
-                            <p class="error-ev"></p>
-                        </div>
-                        <div class="modal-input">
                             <label for="" style="font-size: 13px;">Image</label>
-                            <input type="file" class="input-info" name="image" id="image" accept="image/*">
+                            <input type="file" class="input-info" name="image" id="image" accept="image/*" required>
                             <p class="error-ev"></p>
                         </div>
                     </div>
@@ -134,7 +126,6 @@
                                 <th class="th-head">Time</th>
                                 <th class="th-head">Location</th>
                                 <th class="th-head">Description</th>
-                                <th class="th-head">Score</th>
                                 <th class="th-head">Image</th>
                             </tr>
                         </thead>
@@ -152,8 +143,7 @@
                                     <td class="td-body"><?php echo $row['time']; ?></td>
                                     <td class="td-body"><?php echo $row['location']; ?></td>
                                     <td class="td-body"><?php echo $row['description']; ?></td>
-                                    <td class="td-body"><?php echo $row['score']; ?></td>
-                                    <td class="td-body"><img src="./Event Image/<?php echo $row['image']; ?>" alt="" width="200px" height="100px"></td>
+                                    <td class="td-body"><img src="./Event Image/<?php echo $row['image']; ?>" alt="" width="200px" height="100px" title="<?php echo $row['image']; ?>"></td>
                                 </tr>
                             <?php }; ?>
                         </tbody>

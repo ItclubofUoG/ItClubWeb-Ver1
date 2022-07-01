@@ -8,7 +8,7 @@
         <div class="detail-mn">
             <!-- /model adduser -->
             <div class="modaluser js-modal-ev">
-                <form class="modal-container js-modal-container-ev" method="POST" action="ManageEventPro.php?func=add">
+                <form class="modal-container js-modal-container-ev" method="POST" action="ManageEventPro.php?func=add" enctype="multipart/form-data">
                     <div class="modal-header">
                         <div class="modal-label">
                             <p> Add New Event </p>
@@ -39,12 +39,8 @@
                             <p class="error-ev"></p>
                         </div>
                         <div class="modal-input">
-                            <input type="number" class="input-info" name="score" id="score" placeholder="Event Score" min="0" max="100">
-                            <p class="error-ev"></p>
-                        </div>
-                        <div class="modal-input">
                             <label for="" style="font-size: 13px;">Image</label>
-                            <input type="file" class="input-info" name="image" id="image" accept="image/*">
+                            <input type="file" class="input-info" name="image" id="image" accept="image/*" required>
                             <p class="error-ev"></p>
                         </div>
                     </div>
@@ -72,7 +68,7 @@
                                 <th class="th-head">Time</th>
                                 <th class="th-head">Location</th>
                                 <th class="th-head">Description</th>
-                                <th class="th-head">Score</th>
+                                
                                 <th class="th-head">Image</th>
                             </tr>
                         </thead>
@@ -89,9 +85,8 @@
                                     <td class="td-body"><?php echo $row['date']; ?></td>
                                     <td class="td-body"><?php echo $row['time']; ?></td>
                                     <td class="td-body"><?php echo $row['location']; ?></td>
-                                    <td class="td-body"><?php echo $row['description']; ?></td>
-                                    <td class="td-body"><?php echo $row['score']; ?></td>
-                                    <td class="td-body"><img src="./Event Image/<?php echo $row['image']; ?>" alt="" width="200px" height="100px"></td>
+                                    <td class="td-body"><?php echo $row['description']; ?></td>                                    
+                                    <td class="td-body"><img src="./Event Image/<?php echo $row['image']; ?>" alt="" width="200px" height="100px" title="<?php echo $row['image']; ?>"></td>
 
                                 </tr>
                             <?php }; ?>
