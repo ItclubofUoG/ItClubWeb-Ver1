@@ -65,7 +65,6 @@
             
             ";
                 while ($row = mysqli_fetch_assoc($result)) {
-                    $name = $row['username'] ;
                     $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$us'" ;
                     $result_score = mysqli_query($conn,$sql);
                     $score = mysqli_fetch_array($result_score);

@@ -129,6 +129,7 @@
                             <th>DoB</th>
                             <th>Github</th>
                             <th>Email</th>
+                            <th>Total Score</th>
                         </tr>
                     </thead>
                     <tbody class="table-body">
@@ -155,7 +156,17 @@
                             $this_page_first_result = 0;
                             $sql1 = "SELECT * FROM users WHERE StudentID like '%$id%' or username like '%$id%' LIMIT " . $this_page_first_result . ',' .  $results_per_page;
                             $result = mysqli_query($conn, $sql1);
-                            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
+                            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { 
+                                $name = $row['username'] ;
+                                $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name'" ;
+                                $result_score = mysqli_query($conn,$sql);
+                                $score = mysqli_fetch_array($result_score);
+                                echo $score['score'];
+
+                                
+                                
+                                ?>
+                                    
                                 <tr>
                                     <td>
                                         <a href="?page=manageuser_update&&stuid=<?php echo $row['StudentID']; ?>" class="update-name js-update-name"> <?php echo $row['StudentID']; ?> | <?php echo $row['username']; ?> </a>
@@ -166,6 +177,7 @@
                                     <td> <?php echo $row['user_date']; ?> </td>
                                     <td> <?php echo $row['github']; ?> </td>
                                     <td> <?php echo $row['email']; ?> </td>
+                                    <td> <?php echo $score['score']; ?> </td>
                                 </tr>
 
                             <?php }
@@ -188,7 +200,13 @@
                             $this_page_first_result = ($page - 1) * $results_per_page;
                             $sql1 = 'SELECT * FROM users LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
                             $result = mysqli_query($conn, $sql1);
-                            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { ?>
+                            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { 
+                                    $name = $row['username'] ;
+                                    $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name'" ;
+                                    $result_score = mysqli_query($conn,$sql);
+                                    $score = mysqli_fetch_array($result_score);
+                                    
+                                ?>
                                 <tr>
                                     <td>
                                         <a href="?page=manageuser_update&&stuid=<?php echo $row['StudentID']; ?>" class="update-name js-update-name"> <?php echo $row['StudentID']; ?> | <?php echo $row['username']; ?> </a>
@@ -199,6 +217,7 @@
                                     <td> <?php echo $row['user_date']; ?> </td>
                                     <td> <?php echo $row['github']; ?> </td>
                                     <td> <?php echo $row['email']; ?> </td>
+                                    <td> <?php echo $score['score']; ?> </td>
                                 </tr>
                         <?php
                             }

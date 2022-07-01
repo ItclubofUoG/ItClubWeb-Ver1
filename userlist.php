@@ -40,6 +40,7 @@ body {
                     <th>Department</th>
                     <th>BoB</th>
                     <th>Device</th>
+                    <th>Total Score </th>
                 </tr>
             </thead>
             <tbody class="table-body">
@@ -68,6 +69,10 @@ body {
                 $sql1 = 'SELECT * FROM users LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
                 $result = mysqli_query($conn, $sql1);
                 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                    $name = $row['username'] ;
+                    $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name'" ;
+                    $result_score = mysqli_query($conn,$sql);
+                    $score = mysqli_fetch_array($result_score);
                 ?>
                     <tr>
                         <td>
@@ -78,6 +83,7 @@ body {
                         <td><?php echo $row['Department']; ?></td>
                         <td><?php echo $row['user_date']; ?></td>
                         <td><?php echo $row['device_dep']; ?></td>
+                        <td><?php echo $score['score']; ?></td>
                     </tr>
                 <?php $No++;
                 } ?>
