@@ -166,7 +166,7 @@
                                     
                                 <tr>
                                     <td>
-                                        <a href="?page=manageuser_update&&stuid=<?php echo $row['StudentID']; ?>" class="update-name js-update-name"> <?php echo $row['StudentID']; ?> | <?php echo $row['username']; ?> </a>
+                                        <a href="?page=manageuser_update&&stuid=<?php echo $row['StudentID']; ?>" class="update-name js-update-name" > <?php echo $row['StudentID']; ?> | <?php echo $row['username']; ?> </a>
                                     </td>
                                     <td> <?php echo $row['Department']; ?> </td>
                                     <td> <?php echo $row['gender']; ?> </td>

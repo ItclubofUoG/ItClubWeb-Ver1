@@ -187,12 +187,14 @@ html {
     height: 40px;
 } 
 .update-name {
-    color: #000;
+    color: blue;
     text-decoration: none;
+    font-weight: bold;
 }
 .update-name:hover {
     text-decoration: underline;
     color: #565555;
+    animation: modalFadeIn ease 0.5s;
 }
 .error-ev {
     color:red;
