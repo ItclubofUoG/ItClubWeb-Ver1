@@ -133,7 +133,7 @@
                 <div class="modal-footer">
                     <div class="button">
                         <button type="submit" id="btn-update" name="btn-update" class="modal-button">Update User</button>
-                        <a style="text-align: center; background-color: rgb(238, 245, 245); font-size: 14px; text-decoration: none; color:black" href="?page=manageuserpro&&stid=<?php echo $row['StudentID']; ?>" onclick="return confirm_delete()" id="btn-delete" name="btn-delete" class="modal-button">Remove User</a>
+                        <a style="text-align: center; background-color: red; font-size: 14px; text-decoration: none; color:black" href="?page=manageuserpro&&stid=<?php echo $row['StudentID']; ?>" onclick="return confirm_delete()" id="btn-delete" name="btn-delete" class="modal-button">Remove User</a>
                     </div>
                 </div>
             </form>

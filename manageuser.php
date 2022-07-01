@@ -161,10 +161,7 @@
                                 $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name'" ;
                                 $result_score = mysqli_query($conn,$sql);
                                 $score = mysqli_fetch_array($result_score);
-                                echo $score['score'];
-
-                                
-                                
+                                // echo $score['score'];
                                 ?>
                                     
                                 <tr>

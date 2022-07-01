@@ -77,15 +77,15 @@ CREATE TABLE `event` (
   `id` int(11) NOT NULL,
   `time` time DEFAULT current_timestamp(),
   `image` varchar(500) NOT NULL,
-  `score` int(11) NOT NULL DEFAULT 0
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `event`
 --
 
-INSERT INTO `event` (`title`, `description`, `date`, `location`, `id`, `time`, `image`, `score`) VALUES
-('ITtalk2', 'Good', '2022-05-29', 'F5.02', 1, '17:00:44', 'av2.jpg', 0);
+INSERT INTO `event` (`title`, `description`, `date`, `location`, `id`, `time`, `image`) VALUES
+('ITtalk2', 'Good', '2022-05-29', 'F5.02', 1, '17:00:44', 'av2.jpg');
 
 -- --------------------------------------------------------
 

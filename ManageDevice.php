@@ -38,7 +38,7 @@
                                         <td><?php echo $row["device_dep"] ?></td>
                                         <td>
                                             <div class="de-mode">
-                                                <div class="de-reload">
+                                                <div class="de-reload" style="background-color: red;">
                                                     <a style="text-decoration: none; color:#fff;" onclick="return confirm('Are you sure?');" href="ManageDevicePro.php?func=reload&&deviceid=<?php echo $row["id"] ?>">Reload</style=>
                                                 </div>
                                                 <p><?php echo $row["device_uid"] ?></p>
@@ -57,7 +57,7 @@
                                             </form>
                                         </td>
                                         <td>
-                                            <div class="de-delete">
+                                            <div class="de-delete" style="background-color: red;">
                                                 <a style="text-decoration: none; color:#fff;" onclick="return confirm('Are you sure?');" href="ManageDevicePro.php?func=delete&&deviceid=<?php echo $row["id"] ?>">Delete</a>
                                             </div>
                                         </td>

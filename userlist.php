@@ -38,8 +38,7 @@ body {
                     <th>Email</th>
                     <th>Gender</th>
                     <th>Department</th>
-                    <th>BoB</th>
-                    <th>Device</th>
+                    <th>BoB</th>                    
                     <th>Total Score </th>
                 </tr>
             </thead>
@@ -82,7 +81,7 @@ body {
                         <td><?php echo $row['gender']; ?></td>
                         <td><?php echo $row['Department']; ?></td>
                         <td><?php echo $row['user_date']; ?></td>
-                        <td><?php echo $row['device_dep']; ?></td>
+                        
                         <td><?php echo $score['score']; ?></td>
                     </tr>
                 <?php $No++;
