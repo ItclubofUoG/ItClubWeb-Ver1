@@ -196,6 +196,7 @@
                             // determine the sql LIMIT starting number for the results on the displaying page
                             $this_page_first_result = ($page - 1) * $results_per_page;
                             $sql1 = 'SELECT * FROM users LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
+                            
                             $result = mysqli_query($conn, $sql1);
                             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { 
                                     $name = $row['username'] ;
