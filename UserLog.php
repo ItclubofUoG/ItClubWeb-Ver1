@@ -181,32 +181,32 @@ include_once("connectDB.php");
 
 
 
-
-
-
-
-
 <!--modal add user log manually  -->
-<!-- <div class="modal-filter js-modal-filter"> -->
-    <div class="md-filter-container js-modal-container-filter">
+<div class="modal-filter js-modal-addUserLog">
+    <div class="md-filter-container js-modal-container-addUserLog">
         <form action="Export_Excel.php?function=addUserLog" method="POST">
             <div class="filter-header">
                 <h2 class="head-label">Add user log manually</h2>
-                <i class="filter-close js-modal-filter-close">X</i>
+                <i class="filter-close js-modal-addUserLog-close">X</i>
             </div>
-            
-                <div class="body-bottom">
-                    <div class="filter-1">
-                        <div class="left-head">
-                            <p class="box-label">Enter student ID</p>
-                            <input name="stdID" id="stdID" type="text" class="input-info" placeholder="Enter student ID..." required>
-                        </div>
-                    </div>
 
+            <div class="modal-body">
+                <div class="modal-input">
+                    <input name="stdID" id="stdID" type="text" class="input-info" placeholder="Enter student ID..." required>
                 </div>
             </div>
-            <div class="filter-footer">
-                <div class="footer-btn">                    
+
+            <!-- <div class="body-bottom">
+                <div class="filter-1">
+                    <div class="left-head">
+                        <p class="box-label">Enter student ID</p>
+                        <input name="stdID" id="stdID" type="text" class="input-info" placeholder="Enter student ID..." required>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="modal-footer">
+                <div class="footer-btn">
                     <button type="submit" name="addUserLog" class="btn-filter" style="background-color: #EFCBA2;">Add user log</button>
                 </div>
             </div>
@@ -218,7 +218,31 @@ include_once("connectDB.php");
 
 
 
+<script>
+    const addUserLogs = document.querySelectorAll('.js-btn-addUserLog') //sellect the class use to use js
+    const closeUser = document.querySelector('.js-modal-addUserLog-close')
+    const modaladdUser = document.querySelector('.js-modal-addUserLog')
+    const modalcontainerUser = document.querySelector('.js-modal-container-addUserLog')
 
+    function showAddUserLog() {
+        modaladdUser.classList.add('open')
+    }
+
+    for (const addUserLog of addUserLogs) {
+        addUserLog.addEventListener('click', showAddUserLog)
+    }
+
+    function hideModalAddUser() {
+        modaladdUser.classList.remove('open')
+    }
+    closeUser.addEventListener('click', hideModalAddUser)
+
+    modaladdUser.addEventListener('click', hideModalAddUser)
+
+    modalcontainerUser.addEventListener('click', function(event) {
+        event.stopPropagation() //stop nổi bọt
+    })
+</script>
 
 
 

@@ -1,9 +1,9 @@
 <body style="background-color:  #0c5774;">
     <style>
         .container {
-            text-align: left;
+            text-align: center;
             display: flex;
-            /* justify-content: center; */
+            justify-content: center;
             margin-top: 50px;
             min-height:400px;
         }
