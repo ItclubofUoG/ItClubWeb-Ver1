@@ -32,7 +32,7 @@ html {
     height: 40px;
 }
 .form-input {
-    /* display: block; */
+    display: block;
     width: 80%;
     height: 40px;
     padding-left: 10px;
@@ -40,7 +40,7 @@ html {
     color: #111D2E;
     border: 1px solid #111D2E;
     border-radius: 7px;
-    margin: 20px auto 10px;
+    margin: 0px auto 10px;
     /* position: absolute; */
 }
 .btn-submit {
