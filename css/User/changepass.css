@@ -30,18 +30,17 @@ html {
 .dp-input{
     width: 85%;
     height: 40px;
-
 }
 .form-input {
     /* display: block; */
     width: 80%;
     height: 40px;
-    margin-top: 20px;
     padding-left: 10px;
     background-color: #fff;
     color: #111D2E;
     border: 1px solid #111D2E;
     border-radius: 7px;
+    margin: 20px auto 10px;
     /* position: absolute; */
 }
 .btn-submit {
@@ -60,7 +59,7 @@ html {
 }
 .error-pass {
     color: red;
-    margin-bottom: 5px;
+    /* margin-bottom: 5px; */
     width: 100%;
 }
 @media screen and (max-width: 900px) {
