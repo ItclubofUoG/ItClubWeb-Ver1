@@ -30,6 +30,14 @@
     .pagination a:hover:not(.active) {
         background-color: #ddd;
     }
+
+    .form-group{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 25px;
+        margin-bottom: 7px;
+    }
 </style>
 <!-- body -->
 <div id="manage-container">

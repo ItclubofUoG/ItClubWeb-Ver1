@@ -30,9 +30,9 @@
 
     .errors{
         text-shadow: 1px 0px 1px rgb(58, 58, 58);
-        background-color: rgba(200, 200, 200, 0.1);
-        border-radius: 10px;
-        padding: 0px 10px;
+        /* background-color: rgba(200, 200, 200, 0.1); */
+        border-radius: 10px; 
+        margin: 9px 35px;
     }
 
    .img-lg{
@@ -116,7 +116,7 @@
    
    .log-in{
        width: 60%;
-       height: 90%;
+       height: 70%;
        border: 1px solid #000000;
        box-shadow: 0 0 10px #000000;
        border-radius: 7px;
@@ -133,12 +133,12 @@
        display: block;
        width: 70%;
        height: 45px;
-       margin: 30px auto;
+       margin: 30px auto 0px;
        padding-left: 10px;
        background-color: #fff;
        color: #111D2E;
        border: 1px solid #111D2E;
-       border-radius: 7px;
+       border-radius: 4px;
    }
 
    .btn-login {
@@ -227,12 +227,14 @@
     }
   }
   /* error display */
-.error , .pw-error {
+.error , .pw-error{
     text-align: left;
     color: red;
      font-size: 16px;
      /* display: none; */
      margin-left: 9%;
+    
+
  }
  
  .hide{
@@ -240,7 +242,7 @@
 }
 
 .reflex{
-    margin-top: 70px;
+    margin-top: 40px;
 }
 
 @media screen and (max-width: 900px) {
