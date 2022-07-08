@@ -91,13 +91,19 @@ body {
         <div class="pagination">
             </br>
             </br>
-            <?php 
+            <?php
                 // display the links to the pages
-                for ($page = 1; $page <= $number_of_pages; $page++) {
-                    echo '<a href="admin.php?pages=' . $page . '">' . $page . '</a> ';
-                }
+                if($number_of_pages > 1){
+                    for ($i = 1; $i <= $number_of_pages; $i++) {
+                        if ($i == $page) {
+                            echo '<span style="background-color:#ccc;padding: 8px 16px; float:left;">' . $i . '</span>  ';
+                        } else {
+                            echo '<a href="admin.php?page=manageuser&&pages=' . $i . '"><div class="pag-number">' . $i . '</div></a>  ';
+                        }
+                    }
+                }                    
             ?>
-            </div>
+        </div>
     </div>
 </body>
 
