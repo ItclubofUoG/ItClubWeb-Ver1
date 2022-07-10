@@ -74,7 +74,7 @@
                         </div>
                         <div class="modal-input">
                             <label for="" style="font-size: 13px;">Image</label>
-                            <input type="file" class="input-info" name="image" id="image" accept="image/*" required>
+                            <input class="img-event" type="file" class="input-info" name="image" id="image" accept="image/*" required>
                             <p class="error-ev"></p>
                         </div>
                     </div>
@@ -97,11 +97,11 @@
                         <thead class="table-head">
 
                             <tr class="tr-head">
-                                <th class="th-head">ID | Title</th>
-                                <th class="th-head">Date</th>
-                                <th class="th-head">Time</th>
-                                <th class="th-head">Location</th>
-                                <th class="th-head">Description</th>
+                                <th class="th-head" style="max-width: 40px;">ID | Title</th>
+                                <th class="th-head" style="min-width: 10px;">Date</th>
+                                <th class="th-head" style="min-width: 40px;">Time</th>
+                                <th class="th-head" style="min-width: 10px;">Location</th>
+                                <th class="th-head" style="min-width: 27px;">Description</th>
                                 
                                 <th class="th-head">Image</th>
                             </tr>
@@ -130,14 +130,14 @@
                             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                             ?>
                                 <tr class="tr-body">
-                                    <td class="td-body">
+                                    <td class="td-body" style="max-width: 40px;">
                                         <a href="?page=manageevent_update&&func=update&&id=<?php echo $row['id']; ?>" class="update-name js-update-name"> <?php echo $row['id']; ?> | <?php echo $row['title']; ?> </a>
                                     </td>
-                                    <td class="td-body"><?php echo $row['date']; ?></td>
-                                    <td class="td-body"><?php echo $row['time']; ?></td>
-                                    <td class="td-body"><?php echo $row['location']; ?></td>
-                                    <td class="td-body"><?php echo $row['description']; ?></td>                                    
-                                    <td class="td-body"><img src="./Event Image/<?php echo $row['image']; ?>" alt="" width="200px" height="100px" title="<?php echo $row['image']; ?>"></td>
+                                    <td class="td-body" style="min-width: 10px;"><?php echo $row['date']; ?></td>
+                                    <td class="td-body" style="max-width: 40px;"><?php echo $row['time']; ?></td>
+                                    <td class="td-body" style="min-width: 10px;"><?php echo $row['location']; ?></td>
+                                    <td class="td-body" style="max-width: 27px;"><?php echo $row['description']; ?></td>                                    
+                                    <td class="td-body"><img src="./Event Image/<?php echo $row['image']; ?>" alt="" width="95%" height="150px" title="<?php echo $row['image']; ?>" ></td>
 
                                 </tr>
                             <?php }; ?>

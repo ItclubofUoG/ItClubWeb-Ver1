@@ -143,12 +143,14 @@ html {
         height: 100px;
     }
     .table {
-        /* position: relative; */
+        /* position: relative;
         width: 80%;
         margin-left: 10%;
         margin-right: 10%;
         margin-top: 3%;
-        padding-bottom: 3%;
+        padding-bottom: 3%; */
+        position: relative;
+        right: 5%;
     }
     .head-label {
         color: aliceblue;
@@ -172,8 +174,7 @@ html {
         font-size:14px;
     }
 
-    /* .table-1{
-        margin-right: 75%; */
+
  }
 
 

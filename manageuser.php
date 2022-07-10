@@ -321,11 +321,11 @@
         formGroupSelector: '.form-group',
         errorSelector: '.error',
         rules: [
-            Validator.isRequired('#username', 'this feild can not empty'),
-            Validator.isRequired('#stid', 'this feild can not empty'),
-            Validator.isRequired('#email', 'this feild can not empty'),
-            Validator.isRequired('#card_id', 'this feild can not empty'),
-            Validator.isRequired('#github', 'this feild can not empty'),
+            Validator.isRequired('#username', 'This field can not empty'),
+            Validator.isRequired('#stid', 'This field can not empty'),
+            Validator.isRequired('#email', 'This field can not empty'),
+            Validator.isRequired('#card_id', 'This field can not empty'),
+            Validator.isRequired('#github', 'This field can not empty'),
             Validator.isEmail('#email', 'Invalid email'),
         ],
         // onSubmit: function(data) {

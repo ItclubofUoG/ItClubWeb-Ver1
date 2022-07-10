@@ -28,7 +28,7 @@ html {
     width: 100%;
     background-color: #0c5774;
     min-height: 430px;
-    padding-bottom: 30px;
+    /* padding-bottom: 30px; */
 }
 /* modal */
 .modaluser {
@@ -52,6 +52,7 @@ html {
     align-items: center;
     justify-content: center;
     display: none;
+    z-index: 20;
   }
 .modal-container {
     background-color: #fff;
@@ -230,10 +231,11 @@ html {
   @media screen and (max-width: 900px) { 
 
     .add-user {
-        width: 100%;
+        width: 100px;
         height: 70%;
         font-size: 10px;
-        margin-left: 36%;
+        margin-left: -430%;
+        margin-top: 10px;
     }
 
     .de-table  {
@@ -249,7 +251,30 @@ html {
         margin: calc(50% - 30%) calc(50% - 25.5%);
     }
 
-   
-  }
+    .tr-body, .td-body {
+        font-size: 10px;
+    }
+    .tr-head, .th-head {
+        font-size: 10px;
+    }
+
+    .table {
+        /* position: relative; */
+        width: 90%;
+        margin-left: 10%;
+        margin-right: 10%;
+        margin-top: 5px;
+        padding-bottom: 3%;
+    }
+}
+
+    /* @media screen and (max-width: 600px){
+        .img-event{
+            width: 50px;
+            height: 50px;
+        }
+    } */
+    
+
 
 
