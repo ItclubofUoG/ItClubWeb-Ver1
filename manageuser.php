@@ -31,13 +31,51 @@
         background-color: #ddd;
     }
 
-    .form-group{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-top: 25px;
-        margin-bottom: 7px;
+    .form-group-search{
+        margin-left: 8%;
     }
+    .form-label-s{
+        width: 380px; 
+        height: 30px;
+        margin: 5px 0px 5px 2%;
+        /* style="width: 80px; height: 34px"; */
+    }
+    #btn_search{
+        width: 80px; 
+        height: 34px;
+        border: 1px solid #777;
+        background-color: #FB8122;
+        color: #fff;
+    }
+    #btn_search:hover{
+       transition: 0.3s;
+       cursor: pointer;
+    }
+
+    @media screen and (max-width: 900px){
+        .form-group-search{
+        margin-left: 8%;
+    }
+    .form-label-s{
+        width: 230px; 
+        height: 22px;
+        margin: 5px 0px 5px 2%;
+        /* style="width: 80px; height: 34px"; */
+    }
+    #btn_search{
+        width: 60px; 
+        height: 26px;
+        border: 1px solid #777;
+        background-color: #FB8122;
+        color: #fff;
+    }
+    #btn_search:hover{
+       transition: 0.3s;
+       cursor: pointer;
+    }
+    }
+
+
 </style>
 <!-- body -->
 <div id="manage-container">
@@ -112,10 +150,9 @@
 
         <div>
             <form action="" method="POST">
-                <div class="form-group">
-                    <input type="text" name="id" placeholder="" class="form-label" style="width: 380px; height: 30px">
-                    <button type="submit" name="btn_search" id="btn_search" style="width: 80px; height: 34px">Search</button>
-
+                <div class="form-group-search">
+                    <input type="text" name="id" placeholder="" class="form-label-s">
+                    <button type="submit" name="btn_search" id="btn_search">Search</button>
                 </div>
                 <!-- <div class="btn-add1">
                 <button class="add-user js-add-user" style="width: 80px; height: 30px"> Add new</button>

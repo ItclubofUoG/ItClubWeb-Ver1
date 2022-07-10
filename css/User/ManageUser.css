@@ -128,7 +128,7 @@ html {
 .modal-button {
     display: block;
     width: 50%;
-    height: 30px;
+    height: 20px;
     margin-top: 10px;
     border: 1px solid #ccc;
     border-radius: 7px;
@@ -152,13 +152,16 @@ html {
 .add-user {
     width: 70%;
     height: 100%;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    /* font-size: 15px; */
+    margin-left: 67%;
+    border-radius: 3px;
+    background-color:burlywood;
+    border: 1px solid #777; 
 }
 .add-user:hover {
-    background-color: bisque;
+    background-color: #FB8122;
+    transition: 0.3s;
     cursor: pointer;
+    color: #fff;
 }
 
 /* finish modal */
@@ -203,6 +206,11 @@ html {
     margin-left: 10px;
 }
 
+.error{
+    text-align: left;
+    color: rgb(216, 38, 38);
+    font-size: 12px;
+}
 @keyframes modalFadeIn {
     from {
       opacity: 0;
@@ -222,14 +230,26 @@ html {
   @media screen and (max-width: 900px) { 
 
     .add-user {
-        width: 50px;
-        height: 15px;
-        font-size: 9px;
+        width: 100%;
+        height: 70%;
+        font-size: 10px;
+        margin-left: 36%;
     }
 
     .de-table  {
      font-size: 5px;   
     }
+
+    .modal-container {
+        background-color: #fff;
+        width: 55%;
+        min-height: 170px;
+        position: relative;
+        animation: modalFadeIn ease 0.5s;
+        margin: calc(50% - 30%) calc(50% - 25.5%);
+    }
+
+   
   }
 
 

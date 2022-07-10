@@ -30,6 +30,8 @@
     .pagination a:hover:not(.active) {
         background-color: #ddd;
     }
+
+
 </style>
 <?php include_once('ConnectDB.php'); ?>
 
