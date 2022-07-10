@@ -25,14 +25,13 @@
     font-size: 30px;
     text-align: center;
     margin-top: 10px;
+    margin-bottom: 20px;
     color: white;
     }
 
     .errors{
+        margin-left: 10%;
         text-shadow: 1px 0px 1px rgb(58, 58, 58);
-        /* background-color: rgba(200, 200, 200, 0.1); */
-        border-radius: 10px; 
-        margin: 9px 35px;
     }
 
    .img-lg{
@@ -133,8 +132,7 @@
        display: block;
        width: 70%;
        height: 45px;
-       margin: 30px auto 0px;
-       padding-left: 10px;
+       margin-left: 30px;
        background-color: #fff;
        color: #111D2E;
        border: 1px solid #111D2E;
@@ -227,16 +225,14 @@
     }
   }
   /* error display */
-.error , .pw-error{
+.error1 , .pw-error{
     text-align: left;
-    color: red;
-     font-size: 16px;
-     /* display: none; */
-     margin-left: 9%;
-    
-
+    color: rgb(216, 38, 38);
+    font-size: 12px;
+    margin-left: 11%;
+    padding: 0px;
  }
- 
+
  .hide{
     overflow: hidden;
 }
