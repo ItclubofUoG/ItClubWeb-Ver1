@@ -21,12 +21,12 @@ function Validator(options){
         }
         if(errorMessage){
             errorElement.innerText=errorMessage;
-            errorElement.classList.add('error','errors')
+            // errorElement.classList.add('error','errors')
             // getParent(inputElement,options.formGroupSelector).classList.add('error','errors')
         }else{
             errorElement.innerText=''
             // getParent(inputElement,options.formGroupSelector).classList.remove('error','errors')
-            errorElement.classList.remove('error','errors')
+            // errorElement.classList.remove('error','errors')
         }
         return !errorMessage
     }

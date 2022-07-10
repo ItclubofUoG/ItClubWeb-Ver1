@@ -226,11 +226,12 @@
   }
   /* error display */
 .error1 , .pw-error{
-    text-align: left;
+     text-align: left;
     color: rgb(216, 38, 38);
     font-size: 12px;
     margin-left: 11%;
     padding: 0px;
+
  }
 
  .hide{
