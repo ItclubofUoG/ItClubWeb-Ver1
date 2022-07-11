@@ -98,7 +98,7 @@ body {
                         if ($i == $page) {
                             echo '<span style="background-color:#ccc;padding: 8px 16px; float:left;">' . $i . '</span>  ';
                         } else {
-                            echo '<a href="admin.php?page=manageuser&&pages=' . $i . '"><div class="pag-number">' . $i . '</div></a>  ';
+                            echo '<a href="admin.php?pages=' . $i . '"><div class="pag-number">' . $i . '</div></a>  ';
                         }
                     }
                 }                    
