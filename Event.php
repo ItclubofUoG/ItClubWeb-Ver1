@@ -37,7 +37,7 @@
                             <div class="et-detail">Date: <b><?php echo date('d-m-Y', strtotime($row['date'])) ?></b></div>
                             <div class="et-detail">Time: <b><?php echo $row['time'] ?></b></div>
                             <div class="et-detail">Location: <b><?php echo $row['location'] ?></b></div>
-                            <div class="et-detail">Score: <b><?php echo $row['score'] ?></b></div>
+                            <!-- <div class="et-detail">Score: <b><?php echo $row['score'] ?></b></div> -->
                             
                             
                         </div>
@@ -53,7 +53,7 @@
                             <div class="et-detail">Date: <b><?php echo date('d-m-Y', strtotime($row['date'])) ?></b></div>
                             <div class="et-detail">Time: <b><?php echo $row['time'] ?></b></div>
                             <div class="et-detail">Location: <b><?php echo $row['location'] ?></b></div>
-                            <div class="et-detail">Score: <b><?php echo $row['score'] ?></b></div>
+                            <!-- <div class="et-detail">Score: <b><?php echo $row['score'] ?></b></div> -->
                             
                         </div>
                     </div>
