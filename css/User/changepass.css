@@ -60,7 +60,7 @@ html {
 .error-pass {
     color: red;
     /* margin-bottom: 5px; */
-    width: 100%;
+    width: 50%;
     position: absolute;
     margin-left: 6%;
     margin-top: -10px;

@@ -210,7 +210,11 @@ html {
 .error{
     text-align: left;
     color: rgb(216, 38, 38);
-    font-size: 12px;
+    /* font-size: 12px; */
+    width: 100%;
+    position: absolute;
+    margin-left: 6%;
+    margin-top: -10px;
 }
 @keyframes modalFadeIn {
     from {
