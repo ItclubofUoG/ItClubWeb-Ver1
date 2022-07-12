@@ -96,7 +96,7 @@
                     <div class="modal-input">
                         <div class="form-group">
                             <input type="text" name="username" id="username" class="input-info" placeholder="UserName" style="padding-left: 10px;">
-                            <p class="error" style="margin-bottom: 0; padding-left: 10px"></p>
+                            <p class="error"></p>
                         </div>
                         <div class="form-group">
                             <input type="text" name="stid" id="stid" class="input-info" placeholder="StudentID....." style="padding-left: 10px;">
