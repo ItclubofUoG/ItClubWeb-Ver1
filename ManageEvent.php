@@ -30,10 +30,8 @@
     .pagination a:hover:not(.active) {
         background-color: #ddd;
     }
-
-
 </style>
-<?php include_once('ConnectDB.php'); ?>
+<?php include_once('connectDB.php'); ?>
 
 <body>
 
@@ -68,7 +66,7 @@
                             <input type="text" class="input-info" id="location" name="location" placeholder="Location">
                             <p class="error-ev"></p>
                         </div>
-                        
+
                         <div class="modal-input">
                             <label for="" style="font-size: 13px;">Image</label>
                             <input class="img-event" type="file" class="input-info" name="image" id="image" accept="image/*" required>
@@ -98,8 +96,8 @@
                                 <th class="th-head" style="min-width: 10px;">Date</th>
                                 <th class="th-head" style="min-width: 40px;">Time</th>
                                 <th class="th-head" style="min-width: 10px;">Location</th>
-                                
-                                
+
+
                                 <th class="th-head">Image</th>
                             </tr>
                         </thead>
@@ -133,21 +131,21 @@
                                     <td class="td-body" style="min-width: 10px;"><?php echo $row['date']; ?></td>
                                     <td class="td-body" style="max-width: 40px;"><?php echo $row['time']; ?></td>
                                     <td class="td-body" style="min-width: 10px;"><?php echo $row['location']; ?></td>
-                                                                   
-                                    <td class="td-body"><img src="./Event Image/<?php echo $row['image']; ?>" alt="" width="95%" height="150px" title="<?php echo $row['image']; ?>" ></td>
+
+                                    <td class="td-body"><img src="./Event Image/<?php echo $row['image']; ?>" alt="" width="95%" height="150px" title="<?php echo $row['image']; ?>"></td>
 
                                 </tr>
                             <?php }; ?>
                         </tbody>
                     </table>
                     <div class="pagination">
-                    <?php
-                    // display the links to the pages
-                    for ($page = 1; $page <= $number_of_pages; $page++) {
-                        echo '<a href="admin.php?page=manageevent&&pages=' . $page . '">' . $page . '</a> ';
-                    }                   
-                    ?>
-                </div>
+                        <?php
+                        // display the links to the pages
+                        for ($page = 1; $page <= $number_of_pages; $page++) {
+                            echo '<a href="admin.php?page=manageevent&&pages=' . $page . '">' . $page . '</a> ';
+                        }
+                        ?>
+                    </div>
                 </div>
             </div>
         </div>
@@ -155,7 +153,6 @@
 
 
     <script>
-
         const addEvs = document.querySelectorAll('.js-add-ev') //sellect the class use to use js
         const modalcloseEv = document.querySelector('.js-modal-close-ev')
         const modalUser = document.querySelector('.js-modal-ev')

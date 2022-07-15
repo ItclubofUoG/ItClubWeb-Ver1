@@ -31,51 +31,55 @@
         background-color: #ddd;
     }
 
-    .form-group-search{
+    .form-group-search {
         margin-left: 8%;
     }
-    .form-label-s{
-        width: 380px; 
+
+    .form-label-s {
+        width: 380px;
         height: 30px;
         margin: 5px 0px 5px 2%;
         /* style="width: 80px; height: 34px"; */
     }
-    #btn_search{
-        width: 80px; 
+
+    #btn_search {
+        width: 80px;
         height: 34px;
         border: 1px solid #777;
         background-color: #FB8122;
         color: #fff;
     }
-    #btn_search:hover{
-       transition: 0.3s;
-       cursor: pointer;
+
+    #btn_search:hover {
+        transition: 0.3s;
+        cursor: pointer;
     }
 
-    @media screen and (max-width: 900px){
-        .form-group-search{
-        margin-left: 8%;
-    }
-    .form-label-s{
-        width: 230px; 
-        height: 22px;
-        margin: 5px 0px 5px 2%;
-        /* style="width: 80px; height: 34px"; */
-    }
-    #btn_search{
-        width: 60px; 
-        height: 26px;
-        border: 1px solid #777;
-        background-color: #FB8122;
-        color: #fff;
-    }
-    #btn_search:hover{
-       transition: 0.3s;
-       cursor: pointer;
-    }
-    }
+    @media screen and (max-width: 900px) {
+        .form-group-search {
+            margin-left: 8%;
+        }
 
+        .form-label-s {
+            width: 230px;
+            height: 22px;
+            margin: 5px 0px 5px 2%;
+            /* style="width: 80px; height: 34px"; */
+        }
 
+        #btn_search {
+            width: 60px;
+            height: 26px;
+            border: 1px solid #777;
+            background-color: #FB8122;
+            color: #fff;
+        }
+
+        #btn_search:hover {
+            transition: 0.3s;
+            cursor: pointer;
+        }
+    }
 </style>
 <!-- body -->
 <div id="manage-container">
@@ -179,7 +183,7 @@
                     </thead>
                     <tbody class="table-body">
                         <?php
-                        include_once('ConnectDB.php');
+                        include_once('connectDB.php');
                         if (isset($_POST['btn_search'])) {
                             $id = $_POST['id'];
 
@@ -201,17 +205,17 @@
                             $this_page_first_result = 0;
                             $sql1 = "SELECT * FROM users WHERE StudentID like '%$id%' or username like '%$id%' LIMIT " . $this_page_first_result . ',' .  $results_per_page;
                             $result = mysqli_query($conn, $sql1);
-                            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { 
-                                $name = $row['username'] ;
-                                $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name'" ;
-                                $result_score = mysqli_query($conn,$sql);
+                            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                                $name = $row['username'];
+                                $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name'";
+                                $result_score = mysqli_query($conn, $sql);
                                 $score = mysqli_fetch_array($result_score);
                                 // echo $score['score'];
-                                ?>
-                                    
+                        ?>
+
                                 <tr>
                                     <td>
-                                        <a href="?page=manageuser_update&&stuid=<?php echo $row['StudentID']; ?>" class="update-name js-update-name" > <?php echo $row['StudentID']; ?> | <?php echo $row['username']; ?> </a>
+                                        <a href="?page=manageuser_update&&stuid=<?php echo $row['StudentID']; ?>" class="update-name js-update-name"> <?php echo $row['StudentID']; ?> | <?php echo $row['username']; ?> </a>
                                     </td>
                                     <td> <?php echo $row['Department']; ?> </td>
                                     <td> <?php echo $row['gender']; ?> </td>
@@ -224,7 +228,7 @@
 
                             <?php }
                         } else {
-                            $results_per_page = 10;
+                            $results_per_page = 15;
                             // find out the number of results stored in database
                             $sql = 'SELECT * FROM users';
                             $result = mysqli_query($conn, $sql);
@@ -241,15 +245,15 @@
                             // determine the sql LIMIT starting number for the results on the displaying page
                             $this_page_first_result = ($page - 1) * $results_per_page;
                             $sql1 = 'SELECT * FROM users LIMIT ' . $this_page_first_result . ',' .  $results_per_page;
-                            
+
                             $result = mysqli_query($conn, $sql1);
-                            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) { 
-                                    $name = $row['username'] ;
-                                    $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name'" ;
-                                    $result_score = mysqli_query($conn,$sql);
-                                    $score = mysqli_fetch_array($result_score);
-                                    
-                                ?>
+                            while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                                $name = $row['username'];
+                                $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name'";
+                                $result_score = mysqli_query($conn, $sql);
+                                $score = mysqli_fetch_array($result_score);
+
+                            ?>
                                 <tr>
                                     <td>
                                         <a href="?page=manageuser_update&&stuid=<?php echo $row['StudentID']; ?>" class="update-name js-update-name"> <?php echo $row['StudentID']; ?> | <?php echo $row['username']; ?> </a>
@@ -272,16 +276,16 @@
                     </br>
                     </br>
                     <?php
-                        // display the links to the pages
-                        if($number_of_pages > 1){
-                            for ($i = 1; $i <= $number_of_pages; $i++) {
-                                if ($i == $page) {
-                                    echo '<span style="background-color:#ccc;padding: 8px 16px; float:left;">' . $i . '</span>  ';
-                                } else {
-                                    echo '<a href="admin.php?page=manageuser&&pages=' . $i . '"><div class="pag-number">' . $i . '</div></a>  ';
-                                }
+                    // display the links to the pages
+                    if ($number_of_pages > 1) {
+                        for ($i = 1; $i <= $number_of_pages; $i++) {
+                            if ($i == $page) {
+                                echo '<span style="background-color:#ccc;padding: 8px 16px; float:left;">' . $i . '</span>  ';
+                            } else {
+                                echo '<a href="admin.php?page=manageuser&&pages=' . $i . '"><div class="pag-number">' . $i . '</div></a>  ';
                             }
-                        }                    
+                        }
+                    }
                     ?>
                 </div>
             </div>

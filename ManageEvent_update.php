@@ -1,5 +1,4 @@
-
-<?php include_once('ConnectDB.php'); ?>
+<?php include_once('connectDB.php'); ?>
 
 <body>
 
@@ -44,7 +43,7 @@
                             <input id="location" name="location" type="text" value="<?php echo $row['location'] ?>" class="input-info" placeholder="Location">
                             <p class="error-ev"></p>
                         </div>
-                        
+
                         <div class="modal-input">
                             <label for="" style="font-size: 13px;">Image</label>
                             <input type="file" class="input-info" name="image" id="image" accept="image/*">
@@ -118,7 +117,7 @@
                         <thead class="table-head">
 
                             <tr class="tr-head">
-                            <th class="th-head">ID | Title</th>
+                                <th class="th-head">ID | Title</th>
                                 <th class="th-head">Date</th>
                                 <th class="th-head">Time</th>
                                 <th class="th-head">Location</th>
@@ -133,7 +132,7 @@
                             ?>
                                 <tr class="tr-body">
 
-                                <td class="td-body">
+                                    <td class="td-body">
                                         <a href="?page=manageevent_update&&func=update&&id=<?php echo $row['id']; ?>" class="update-name js-update-name"> <?php echo $row['id']; ?> | <?php echo $row['title']; ?> </a>
                                     </td>
                                     <td class="td-body"><?php echo $row['date']; ?></td>
