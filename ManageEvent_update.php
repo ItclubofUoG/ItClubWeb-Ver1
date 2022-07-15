@@ -44,10 +44,7 @@
                             <input id="location" name="location" type="text" value="<?php echo $row['location'] ?>" class="input-info" placeholder="Location">
                             <p class="error-ev"></p>
                         </div>
-                        <div class="modal-input">
-                            <input id="description" name="description" type="text" value="<?php echo $row['description'] ?>" class="input-info" placeholder="Description">
-                            <p class="error-ev"></p>
-                        </div>
+                        
                         <div class="modal-input">
                             <label for="" style="font-size: 13px;">Image</label>
                             <input type="file" class="input-info" name="image" id="image" accept="image/*">
