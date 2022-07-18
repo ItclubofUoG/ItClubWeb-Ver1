@@ -6,7 +6,7 @@ if (isset($_GET['func']) && $_GET['func'] == 'add') {
     $date = $_POST['date'];
     $time = $_POST['time'];
     $location = $_POST['location'];
-    $description = $_POST['description'];
+    // $description = $_POST['description'];
     $pic = $_FILES['image'];
 
     if ($pic['type'] == "image/jpg" || $pic['type'] == "image/jpeg" || $pic['type'] == "image/png" || $pic['type'] == "image/gif") {
@@ -15,7 +15,7 @@ if (isset($_GET['func']) && $_GET['func'] == 'add') {
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) == 0) {
             copy($pic['tmp_name'], "./Event Image/" . $pic['name']);
-            mysqli_query($conn, "INSERT INTO `event`(`title`, `description`, `date`, `location`, `time`,image) VALUES ('$title','$description','$date','$location','$time','$image')");
+            mysqli_query($conn, "INSERT INTO `event`(`title`, `date`, `location`, `time`,image) VALUES ('$title','$date','$location','$time','$image')");
             echo "<script> location.href='admin.php?page=manageevent'</script>";
             exit;
         } else {
@@ -32,19 +32,19 @@ if (isset($_POST['btn_update'])) {
     $date = $_POST['date'];
     $time = $_POST['time'];
     $location = $_POST['location'];
-    $description = $_POST['description'];
+    // $description = $_POST['description'];
     $pic = $_FILES['image'];
     $image = $pic['name'];
 
     if ($pic['name'] != "") {
         if ($pic['type'] == "image/jpg" || $pic['type'] == "image/jpeg" || $pic['type'] == "image/png" || $pic['type'] == "image/gif") {
             copy($pic['tmp_name'], "./Event Image/" . $pic['name']);
-            mysqli_query($conn, "UPDATE `event` SET `title`='$title',`description`='$description',`date`='$date',`location`='$location',`time`='$time', image='$image' WHERE `id`='$id'") or die(mysqli_error($conn));
+            mysqli_query($conn, "UPDATE `event` SET `title`='$title',`date`='$date',`location`='$location',`time`='$time', image='$image' WHERE `id`='$id'") or die(mysqli_error($conn));
             echo "<script> location.href='admin.php?page=manageevent'</script>";
             exit;
         }
     } else {
-        mysqli_query($conn, "UPDATE `event` SET `title`='$title',`description`='$description',`date`='$date',`location`='$location',`time`='$time' WHERE `id`='$id'") or die(mysqli_error($conn));
+        mysqli_query($conn, "UPDATE `event` SET `title`='$title',`date`='$date',`location`='$location',`time`='$time' WHERE `id`='$id'") or die(mysqli_error($conn));
         echo "<script> location.href='admin.php?page=manageevent'</script>";
     }
 }
