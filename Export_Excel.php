@@ -98,6 +98,9 @@ if (isset($_POST['To_Excel'])) {
                       <TH style="background-color: #33F0FF">Score</TH>
                     </TR>';
         while ($row = $result->fetch_assoc()) {
+            $name = $row['username'];
+            $sqlScore =mysqli_query($conn,"SELECT SUM(scores) as score FROM `users_logs` WHERE username ='$name'") ;
+            $sumScore = mysqli_fetch_array($sqlScore,MYSQLI_ASSOC);
             $output .= '
                         <TR> 
                             <TD> ' . $row['id'] . '</TD>
@@ -105,7 +108,7 @@ if (isset($_POST['To_Excel'])) {
                             <TD> ' . $row['checkindate'] . '</TD>
                             <TD> ' . $row['timein'] . '</TD>
                             <TD> ' . $row['timeout'] . '</TD>
-                            <TD> ' . $row['scores'] . '</TD>
+                            <TD> ' . $sumScore['score'] . '</TD>
                         </TR>';
         }
         $output .= '</table>';

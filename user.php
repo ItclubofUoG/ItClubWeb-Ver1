@@ -40,6 +40,7 @@
             <?php
             require 'connectDB.php';
             $us = $_SESSION["us"];
+            
 
             if (isset($_POST['checkindate'])) {
                 $checkindate = $_POST['checkindate'];
@@ -51,6 +52,7 @@
                 $year = date("Y");
             }
             $sql = "select * From users_logs  where '$month' = MONTH(checkindate) AND '$year'=YEAR(checkindate) AND '$us'=username";
+            
             $result = mysqli_query($conn, $sql);
             if (mysqli_num_rows($result) > 0) {
                 echo "<table class=\"center\">
