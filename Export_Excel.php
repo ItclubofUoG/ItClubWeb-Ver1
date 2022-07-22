@@ -79,13 +79,14 @@ if (isset($_POST['To_Excel'])) {
     //     $Start_date = date("Y-m-d");
     //     $_SESSION['searchQuery'] = "checkindate='" . $Start_date . "'";
     // }
-    
+
     $sql = "SELECT * FROM users_logs ORDER BY id DESC";
     if (isset($_SESSION['searchQuery']) && $check == 1) { //
-        $sql = "SELECT * FROM users_logs WHERE " . $_SESSION['searchQuery'] . " ORDER BY id DESC";
+        $sql = "SELECT * FROM users_logs WHERE " . $_SESSION['searchQuery'] . " GROUP BY username ORDER BY id DESC ";
     }
 
     $result = mysqli_query($conn, $sql);
+    $no = 1;
     if ($result->num_rows > 0) {
         $output .= '
                   <table class="table" border="1" style="font-size: 20px; border: 2px solid">  
@@ -99,17 +100,18 @@ if (isset($_POST['To_Excel'])) {
                     </TR>';
         while ($row = $result->fetch_assoc()) {
             $name = $row['username'];
-            $sqlScore =mysqli_query($conn,"SELECT SUM(scores) as score FROM `users_logs` WHERE username ='$name'") ;
-            $sumScore = mysqli_fetch_array($sqlScore,MYSQLI_ASSOC);
+            $sqlScore = mysqli_query($conn, "SELECT SUM(scores) as score FROM `users_logs` WHERE username ='$name' ");
+            $sumScore = mysqli_fetch_array($sqlScore, MYSQLI_ASSOC);
             $output .= '
                         <TR> 
-                            <TD> ' . $row['id'] . '</TD>
+                            <TD style="text-align: center"> ' . $no . '</TD>
                             <TD> ' . $row['username'] . '</TD>                           
                             <TD> ' . $row['checkindate'] . '</TD>
                             <TD> ' . $row['timein'] . '</TD>
                             <TD> ' . $row['timeout'] . '</TD>
                             <TD> ' . $sumScore['score'] . '</TD>
                         </TR>';
+            $no++;
         }
         $output .= '</table>';
         $dateExport = date("Y-m-d");
