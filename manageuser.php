@@ -184,7 +184,12 @@
                     <tbody class="table-body">
                         <?php
                         include_once('connectDB.php');
+                        $currentDate = date('Y-m-d', time());
+                        $month = date('m', strtotime($currentDate));
+
                         if (isset($_POST['btn_search'])) {
+
+
                             $id = $_POST['id'];
 
                             $results_per_page = 10;
@@ -207,7 +212,7 @@
                             $result = mysqli_query($conn, $sql1);
                             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                                 $name = $row['username'];
-                                $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name'";
+                                $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name' and month(checkindate) = '$month'";
                                 $result_score = mysqli_query($conn, $sql);
                                 $score = mysqli_fetch_array($result_score);
                                 // echo $score['score'];
@@ -249,7 +254,7 @@
                             $result = mysqli_query($conn, $sql1);
                             while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                                 $name = $row['username'];
-                                $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name'";
+                                $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name' and month(checkindate) = '$month'";
                                 $result_score = mysqli_query($conn, $sql);
                                 $score = mysqli_fetch_array($result_score);
 

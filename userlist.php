@@ -48,7 +48,10 @@
             </thead>
             <tbody class="table-body">
                 <?php
+
                 include_once("connectDB.php");
+
+
                 $No = 1;
                 if (isset($_SESSION["us"])) {
                     $username = $_SESSION["us"];
@@ -73,7 +76,11 @@
                 $result = mysqli_query($conn, $sql1);
                 while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
                     $name = $row['username'];
-                    $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name'";
+                    
+                    $currentDate = date('Y-m-d', time());
+                    $month = date('m', strtotime($currentDate));
+
+                    $sql = "SELECT SUM(scores) as score FROM `users_logs` WHERE username='$name' and month(checkindate) = '$month'";
                     $result_score = mysqli_query($conn, $sql);
                     $score = mysqli_fetch_array($result_score);
                 ?>
@@ -102,7 +109,7 @@
                     if ($i == $page) {
                         echo '<span style="background-color:#ccc;padding: 8px 16px; float:left;">' . $i . '</span>  ';
                     } else {
-                        echo '<a href="admin.php?page=manageuser&&pages=' . $i . '"><div class="pag-number">' . $i . '</div></a>  ';
+                        echo '<a href="admin.php?pages=' . $i . '"><div class="pag-number">' . $i . '</div></a>  ';
                     }
                 }
             }
